@@ -7,3 +7,4 @@ cd ~/code/reading_list && git pull
 cd ~/code/scheduled_tweets && git pull
 cd ~/code/mscourts_scraper && git pull
 cd ~/code/police_shootings && git pull
+cd ~/code/runners && git pull
