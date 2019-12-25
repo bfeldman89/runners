@@ -1,0 +1,43 @@
+# !/usr/bin/env python3
+"""
+This module runs all of my scripts that require pdfkit bc pythonanywhere doesn't support it.
+It is scheduled to run every hour at 5min past the hour. The cron job is as follows:
+
+5 * * * * source ~/.bash_profile && cd ~/code && python3 ~/code/local_sched.py
+"""
+import os
+import time
+from datetime import datetime
+from jail_scrapers import pdf_stuff
+
+this_hour = int(time.strftime("%H"))
+
+
+def csv_log(msg):
+    with open('/Users/blakefeldman/code/local_sched.csv', 'a') as log_csv:
+        print(datetime.now().strftime('%m/%d/%Y %H:%M'), msg, sep=",", end="\n", file=log_csv)
+
+
+def main():
+    os.chdir(f"/{os.getenv('HOME')}/code/jail_scrapers")
+    pdf_stuff.main()
+    csv_log(msg='pdf_stuff.main() 👌')
+
+    if 7 <= this_hour <= 19:
+        from msleg_scraper import msleg_scraper
+        os.chdir(f"/{os.getenv('HOME')}/code/msleg_scraper/output/diffs")
+        msleg_scraper.main()
+        csv_log(msg='msleg_scraper.main() 👌')
+    elif this_hour == 2:
+        from jail_scrapers import snapshot
+        os.chdir(f"/{os.getenv('HOME')}/code/jail_scrapers")
+        snapshot.main()
+        csv_log(msg='mdoc_scraper.main() 👌')
+    else:
+        pass
+
+    csv_log(msg="🍾 Cheers! 🥂🥂🥂")
+
+
+if __name__ == "__main__":
+    main()
