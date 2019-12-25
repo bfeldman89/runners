@@ -6,15 +6,16 @@ It is scheduled to run every hour at 20min past the hour. The idea is that my lo
 
 20 * * * * source ~/.bashrc && cd ~/code && python3 pa_sched.py && cd ~/code && python3 jail_scrapers/scrapers.py
 """
+
 import os
 import time
-import requests
-from ..jail_scrapers import polish_data
-from ..mdoc_scraper import mdoc_scraper
-from ..police_shootings import police_shootings
-from ..reading_list import muh_news
-from ..scheduled_tweets import scheduled_tweets
-from ..sos_scraper import sos_scraper
+import sos_scraper
+import scheduled_tweets
+import muh_news
+import police_shootings
+import mdoc_scraper
+import polish_data
+
 
 this_hour = int(time.strftime("%H"))
 
@@ -35,7 +36,7 @@ def main():
         os.chdir(f"/{os.getenv('HOME')}/code/mdoc_scraper")
         mdoc_scraper.main()
         print('mdoc_scraper.main() 👌')
-        sos_scraper.main()
+        sos_scraper.scrape_exec_orders()
         print('sos_scraper.main() 👌')
 
     if this_hour in {7, 19}:
@@ -56,6 +57,4 @@ def main():
 
 
 if __name__ == "__main__":
-    requests.get("https://cronhub.io/start/aadb96c0-1e42-11ea-901f-6f28d3f87fc3")
     main()
-    requests.get("https://cronhub.io/finish/aadb96c0-1e42-11ea-901f-6f28d3f87fc3")
