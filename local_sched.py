@@ -8,7 +8,8 @@ It is scheduled to run every hour at 5min past the hour. The cron job is as foll
 import os
 import time
 from datetime import datetime
-from jail_scrapers import pdf_stuff
+from ..jail_scrapers import pdf_stuff, snapshot
+from ..msleg_scraper import msleg_scraper
 
 this_hour = int(time.strftime("%H"))
 
@@ -24,12 +25,10 @@ def main():
     csv_log(msg='pdf_stuff.main() 👌')
 
     if 7 <= this_hour <= 19:
-        from msleg_scraper import msleg_scraper
         os.chdir(f"/{os.getenv('HOME')}/code/msleg_scraper/output/diffs")
         msleg_scraper.main()
         csv_log(msg='msleg_scraper.main() 👌')
     elif this_hour == 2:
-        from jail_scrapers import snapshot
         os.chdir(f"/{os.getenv('HOME')}/code/jail_scrapers")
         snapshot.main()
         csv_log(msg='mdoc_scraper.main() 👌')
