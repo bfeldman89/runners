@@ -9,6 +9,12 @@ It is scheduled to run every hour at 20min past the hour. The idea is that my lo
 import os
 import time
 import requests
+from ..jail_scrapers import polish_data
+from ..mdoc_scraper import mdoc_scraper
+from ..police_shootings import police_shootings
+from ..reading_list import muh_news
+from ..scheduled_tweets import scheduled_tweets
+from ..sos_scraper import sos_scraper
 
 this_hour = int(time.strftime("%H"))
 
@@ -23,30 +29,24 @@ def main():
 
     if (this_hour % 2) == 0:
         os.chdir(f"/{os.getenv('HOME')}/code/jail_scrapers")
-        from jail_scrapers import polish_data
         polish_data.main()
         print('polish_data.main() 👌')
     else:
         os.chdir(f"/{os.getenv('HOME')}/code/mdoc_scraper")
-        from mdoc_scraper import mdoc_scraper
         mdoc_scraper.main()
         print('mdoc_scraper.main() 👌')
-        from sos_scraper import sos_scraper
         sos_scraper.main()
         print('sos_scraper.main() 👌')
 
     if this_hour in {7, 19}:
-        from reading_list import muh_news
         muh_news.main()
         print('muh_news.main() 👌')
-        from police_shootings import police_shootings
         police_shootings.main()
         print('police_shootings.main() 👌')
     else:
         pass
 
     if 9 <= this_hour <= 18:
-        from scheduled_tweets import scheduled_tweets
         scheduled_tweets.main()
         print('scheduled_tweets 👌')
     else:
