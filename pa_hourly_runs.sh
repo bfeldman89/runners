@@ -14,7 +14,7 @@ python3 ~/code/reading_list/muh_news.py
 the_hour="$(date +"%H")"
 echo "Current hour : $the_hour"
 
-if ((9 <= $the_hour) && ($the_hour<= 19 )); then
+if (( the_hour>8 && the_hour<20 )); then
     python3 ~/code/scheduled_tweets/scheduled_tweets.py
 else
     echo "it's way too late/early for tweets"
