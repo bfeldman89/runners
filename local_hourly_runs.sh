@@ -1,5 +1,7 @@
 #!/bin/bash
-source ~/.bash_profile
+
+# to run this script, the following cron job is set up:
+# 40 * * * * source ~/.bash_profile && cd ~/code/runners && ./local_hourly_runs.sh
 
 # work with pdfkit & imgkit stuff that doesn't work on pa
 cd ~/code/jail_scrapers && python3 pdf_stuff.py
