@@ -11,7 +11,7 @@ cd ~/code/reading_list && python3 muh_news.py
 the_hour="$(date +"%H")"
 echo "Current hour : $the_hour"
 
-if (( 9 <= $the_hour <= 19 )); then
+if ((9 <= $the_hour) && ($the_hour<= 19 )); then
     echo "it's between 9am & 9pm"
     cd ~/code/scheduled_tweets && python3 scheduled_tweets.py
 else
