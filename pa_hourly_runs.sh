@@ -20,6 +20,6 @@ fi
 # b. Only once per day, at 1am, is WaPo's database checked for updates.
 if (( the_hour>8 && the_hour<20 )); then
     python3 ~/code/scheduled_tweets/scheduled_tweets.py
-else if [ $the_hour = "1" ]; then
+elif [ "$the_hour" = "1" ]; then
     python3 ~/code/police_shootings/police_shootings.py
 fi
