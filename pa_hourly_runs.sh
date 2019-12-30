@@ -1,7 +1,4 @@
 #!/bin/bash
-# if PythonAnywhere can run any of my scrapers, that's where I run them.
-# For now, that's everything other than msleg_scraper.py & pdf_stuff.py.
-# This bash script is run as an hourly task at PythonAnywhere.
 
 # 1. THE JAIL SCRAPING MODULES ARE RUN EVERY HOUR
 python3 ~/code/jail_scrapers/scrapers.py
