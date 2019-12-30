@@ -11,7 +11,7 @@ the_hour="$(date +"%H")"
 if (( "$[ ${the_hour#0} % 2 ]" == 1 )); then
     python3 ~/code/sos_scraper/sos_scraper.py
 else
-    python3 ~/code/mdoc_scraper/mdoc_scraper.py
+    python3 ~/code/mdoc_scraper/mdoc_scraper_v2.py
     python3 ~/code/reading_list/muh_news.py
 fi
 
