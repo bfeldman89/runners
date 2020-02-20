@@ -18,7 +18,7 @@ fi
 # 3. FINALLY, CERTAIN SCRIPTS ONLY RUN DURING TARGETTED HOURS OF THE DAY
 # a. Every hour, 9am - 7pm, if applicable, a scheduled tweet is tweeted.
 # b. Only once per day, at 1am, is WaPo's database checked for updates.
-if (( ${the_hour#0}>8 && ${the_hour#0}<20 )); then
+if (( ${the_hour#0}>7 && ${the_hour#0}<21 )); then
     python3 ~/code/scheduled_tweets/scheduled_tweets.py
 elif [ "$the_hour" = "1" ]; then
     python3 ~/code/police_shootings/police_shootings.py
