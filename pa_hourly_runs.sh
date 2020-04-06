@@ -13,7 +13,7 @@ if (( "$[ ${the_hour#0} % 2 ]" == 1 )); then
     cd ~/code/sos_scraper && pipenv run python sos_scraper.py
 else
     cd ~/code/mdoc_scraper && pipenv run python mdoc_scraper_v2.py
-    # cd ~/code/reading_list && pipenv run python muh_news.py
+    cd ~/code/reading_list && pipenv run python muh_news.py
 fi
 
 # 3. FINALLY, CERTAIN SCRIPTS ONLY RUN DURING TARGETTED HOURS OF THE DAY
