@@ -1,5 +1,12 @@
 # runners
 
+[![codefactor](https://www.codefactor.io/repository/github/bfeldman89/runners/badge?style=plastic)](https://www.codefactor.io/repository/github/bfeldman89/runners)
+![GitHub](https://img.shields.io/github/license/bfeldman89/runners?style=plastic)
+
+![Twitter Follow](https://img.shields.io/twitter/follow/botfeldman89?style=social)
+
+![Twitter Follow](https://img.shields.io/twitter/follow/bfeldman89?style=social)
+
 ## local schedule
 
 ```cron
