@@ -2,8 +2,8 @@
 
 # 1. THE JAIL SCRAPING MODULES ARE RUN EVERY HOUR
 cd ~/code/jail_scrapers
-pipenv run python scrapers.py mcdc,prcdf,jcadc,hcdc,acdc,jcj 5
-# for some effed up reason, only these 6 jails are working via PyA tasks...
+pipenv run python scrapers.py mcdc,prcdf,lcdc,jcadc,hcdc,acdc,jcj 5
+# for some effed up reason, only these 7 jails are working via PyA tasks...
 # the other 5 jails work on PyA consoles but not in hourly tasks????
 pipenv run python polish_data.py
 
