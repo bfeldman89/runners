@@ -11,7 +11,7 @@ pipenv run python polish_data.py
 # a. Every odd hour, the SOS scraper runs
 # b. Every even hour, the MDOC scraper & a news scraper run
 the_hour="$(date +"%H")"
-if (( "$[ ${the_hour#0} % 2 ]" == 1 )); then
+if (( $(( ${the_hour#0} % 2 )) == 1 )); then
     cd ~/code/sos_scraper && pipenv run python sos_scraper.py
 else
     cd ~/code/mdoc_scraper && pipenv run python mdoc_scraper_v2.py
