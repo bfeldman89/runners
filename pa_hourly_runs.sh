@@ -23,6 +23,7 @@ fi
 # b. Only once per day, at 1am, is WaPo's database checked for updates.
 if (( ${the_hour#0}>7 && ${the_hour#0}<21 )); then
     cd ~/code/scheduled_tweets && pipenv run python scheduled_tweets.py
-elif [ "$the_hour" = "07" ]; then
-    cd ~/code/police_shootings && pipenv run python police_shootings.py
+# elif [ "$the_hour" = "07" ]; then
+#     cd ~/code/police_shootings && pipenv run python police_shootings.py
+# police violence scraper now scheduled to run daily via PyAn at 8am
 fi
