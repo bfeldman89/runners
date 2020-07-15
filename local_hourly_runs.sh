@@ -4,7 +4,7 @@
 cd ~/code/jail_scrapers
 pipenv run python scrapers.py kcdc,jcdc,tcdc,ccdc,ccj 5
 
-# work with pdfkit & imgkit stuff that doesn't work on pa
+# work with pdfkit & imgkit stuff that doesn't work via PyAn
 # jail scraper pdfs
 pipenv run python pdf_stuff.py
 
@@ -13,9 +13,9 @@ cd ~/code/msleg_scraper
 pipenv run python msleg_scraper.py
 pipenv run python senate_cmte_agendas.py
 
-# mdoc covid pdf
-cd ~/code/mdoc_scraper
-pipenv run python mdoc_covid.py
+# mdoc covid pdf now scheduled via PyAn at 7pm
+# cd ~/code/mdoc_scraper
+# pipenv run python mdoc_covid.py
 
 # TODO: find out how to automate deleting from reading list
 cd ~/code/reading_list
