@@ -20,7 +20,7 @@ pipenv run python mdoc_covid.py
 # TODO: find out how to automate deleting from reading list
 cd ~/code/reading_list
 the_hour="$(date +"%H")"
-if (( "$[ ${the_hour#0} % 2 ]" == 1 )); then
+if (( $(( ${the_hour#0} % 2 )) == 1 )); then
     pipenv run python muh_news.py
 elif [ "$the_hour" = "05" ]; then
     pipenv run python get_reading_list.py
