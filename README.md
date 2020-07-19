@@ -4,7 +4,6 @@
 ![GitHub](https://img.shields.io/github/license/bfeldman89/runners?style=plastic)
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/botfeldman89?style=social)
-
 ![Twitter Follow](https://img.shields.io/twitter/follow/bfeldman89?style=social)
 
 ## local schedule
@@ -15,7 +14,7 @@ PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin
 40 * * * * source ~/.bash_profile && cd ~/code/runners && ./local_hourly_runs.sh
 ```
 
-I have to locally run all of my scrapers that require `pdfkit`, and I'm running them each via `local_hourly_runs.sh`. More specifically, `local_hourly_runs.sh` is scheduled to run ever hour at 40 minutes past the hour via a cron job on my Macbook.
+I have to locally run all of my scrapers that require `pdfkit`, and I'm running them each via `local_hourly_runs.sh`. More specifically, `local_hourly_runs.sh` is scheduled to run ever hour at 40 minutes past the hour via a cron job on my MacBook.
 
 ## virtual server schedule
 
