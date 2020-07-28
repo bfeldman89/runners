@@ -2,8 +2,7 @@
 
 # scrape the 4 or 5 jails that don't work on pa
 cd ~/code/jail_scrapers
-pipenv run python scrapers.py kcdc,jcdc,tcdc,ccdc,ccj 5
-
+# pipenv run python scrapers.py kcdc,jcdc,tcdc,ccdc,ccj 5
 # work with pdfkit & imgkit stuff that doesn't work via PyAn
 # jail scraper pdfs
 pipenv run python pdf_stuff.py
