@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # cd ~/code/3xp && git pull
-
 cd ~/code/jail_scrapers && git pull
 cd ~/code/mdoc_scraper && git pull
 cd ~/code/msleg_scraper && git pull
