@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # 1. THE JAIL SCRAPING MODULES ARE RUN EVERY HOUR
+# Only 7 dockets are working via PyAn (mcdc, prcdf, lcdc, jcadc, hcdc, acdc, and jcj).
+# The other 5 dockets (kcdc, jcdc, tcdc, ccdc, and ccj) are scraped from the local netweork.
+# Because MS internet is trash, I scrape 2 dockets every odd hour and 3 dockets every even hour.
 cd ~/code/jail_scrapers
 pipenv run python scrapers.py mcdc,prcdf,lcdc,jcadc,hcdc,acdc,jcj 5
-# for some effed up reason, only these 7 jails are working via PyAn tasks...
-# the other 6 jails only work on my local network and run via cron
 pipenv run python polish_data.py
 
 # 2. A FEW SCRIPTS WILL ONLY RUN EVERY OTHER HOUR
