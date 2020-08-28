@@ -2,10 +2,9 @@
 
 # 1. THE JAIL SCRAPING MODULES ARE RUN EVERY HOUR
 cd ~/code/jail_scrapers
-# pipenv run python scrapers.py mcdc,prcdf,lcdc,jcadc,hcdc,acdc,jcj 5
-pipenv run python scrapers.py all 5
-# for some effed up reason, only these 7 jails are working via PyA tasks...
-# the other 5 jails work on PyA consoles but not in hourly tasks????
+pipenv run python scrapers.py mcdc,prcdf,lcdc,jcadc,hcdc,acdc,jcj 5
+# for some effed up reason, only these 7 jails are working via PyAn tasks...
+# the other 6 jails only work on my local network and run via cron
 pipenv run python polish_data.py
 
 # 2. A FEW SCRIPTS WILL ONLY RUN EVERY OTHER HOUR
@@ -24,7 +23,4 @@ fi
 # b. Only once per day, at 1am, is WaPo's database checked for updates.
 if (( ${the_hour#0}>7 && ${the_hour#0}<21 )); then
     cd ~/code/scheduled_tweets && pipenv run python scheduled_tweets.py
-# elif [ "$the_hour" = "07" ]; then
-#     cd ~/code/police_shootings && pipenv run python police_shootings.py
-# police violence scraper now scheduled to run daily via PyAn at 8am
 fi
