@@ -7,9 +7,9 @@
 cd ~/code/jail_scrapers
 the_hour="$(date +"%H")"
 if (( $(( ${the_hour#0} % 2 )) == 1 )); then
-    pipenv run python scrapers.py kcdc,jcdc 7
+    pipenv run python scrapers.py kcdc,ccj 7
 else
-    pipenv run python scrapers.py tcdc,ccdc,ccj 7
+    pipenv run python scrapers.py jcdc,tcdc,ccdc 7
 fi
 # clean the data and upload any new pdfs
 pipenv run python polish_data.py
