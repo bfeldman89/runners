@@ -3,7 +3,7 @@
 # 1. SOME JAIL SCRAPING MODULES ARE RUN EVERY HOUR
 # Only 7 dockets are working via PyAn (mcdc, prcdf, lcdc, jcadc, hcdc, acdc, and jcj).
 # The other 5 dockets (kcdc, jcdc, tcdc, ccdc, and ccj) are scraped from the local netweork.
-# Because MS internet is trash, I scrape 2 dockets every odd hour and 3 dockets every even hour.
+# Because MS internet is trash, I scrape 2/5 dockets every odd hour and 3/5 dockets every even hour.
 cd ~/code/jail_scrapers
 the_hour="$(date +"%H")"
 if (( $(( ${the_hour#0} % 2 )) == 1 )); then
