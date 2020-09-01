@@ -25,6 +25,6 @@ fi
 # a. Every hour, 9am - 7pm, if applicable, a scheduled tweet is tweeted.
 # b. Only once per day, at 1am, is WaPo's database checked for updates.
 
-if (( ${the_hour#0}>7 && ${the_hour#0}<21 )); then
+if (( ${the_hour#0}>9 && ${the_hour#0}<19 )); then
     cd ~/code/scheduled_tweets && pipenv run python scheduled_tweets.py
 fi
