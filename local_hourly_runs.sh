@@ -14,7 +14,6 @@ fi
 # clean the data and upload any new pdfs
 pipenv run python polish_data.py
 pipenv run python pdf_stuff.py
-pipenv run python fix_dc_urls_in_archive.py 50 5
 
 # 2. RUN THE MSLEG SCRAPERS LOCALLY EVERY HOUR
 cd ~/code/msleg_scraper
