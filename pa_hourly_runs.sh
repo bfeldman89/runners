@@ -8,7 +8,6 @@
 cd ~/code/jail_scrapers
 pipenv run python scrapers.py mcdc,prcdf,lcdc,jcadc,hcdc,acdc,jcj 5
 pipenv run python polish_data.py
-pipenv run python fix_dc_urls_in_archive.py 100 5
 
 # 2. A FEW SCRIPTS WILL ONLY RUN EVERY OTHER HOUR
 # a. Every odd hour, the SOS scraper runs
