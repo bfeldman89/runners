@@ -6,7 +6,7 @@
 # Because MS internet is trash, I scrape 2 dockets every odd hour and 3 dockets every even hour.
 
 cd ~/code/jail_scrapers
-pipenv run python scrapers.py mcdc,prcdf,lcdc,jcadc,hcdc,acdc,jcj 5
+pipenv run python scrapers.py mcdc,lcdc,jcadc,hcdc,acdc,jcj 5
 pipenv run python polish_data.py
 
 # 2. A FEW SCRIPTS WILL ONLY RUN EVERY OTHER HOUR
