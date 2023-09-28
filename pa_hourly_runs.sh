@@ -1,27 +1,20 @@
 #!/bin/bash
 
-# 1. THE JAIL SCRAPING MODULES ARE RUN EVERY HOUR
-# Only 6 dockets are working via PyAn (mcdc, prcdf, lcdc, hcdc, acdc, and jcj).
-# The other 6 dockets (kcdc, jcadc, jcdc, tcdc, ccdc, and ccj) are scraped from the local netweork.
-# Because MS internet is trash, I scrape 3 dockets every odd hour and 3 dockets every even hour.
-
-cd ~/code/jail_scrapers
-pipenv run python scrapers.py mcdc,lcdc,hcdc,acdc,jcj 5
-pipenv run python polish_data.py
-
-# 2. A FEW SCRIPTS WILL ONLY RUN EVERY OTHER HOUR
-# a. Every odd hour, the SOS scraper runs
-# b. Every even hour, the MDOC scraper & a news scraper run
+# 1. A FEW SCRIPTS WILL ONLY RUN EVERY OTHER HOUR
+# a. Every odd hour, the jail scrapers run
+# b. Every even hour, a few other scrapers/scripts run
 
 the_hour="$(date +"%H")"
 if (( $(( ${the_hour#0} % 2 )) == 1 )); then
-    cd ~/code/sos_scraper && pipenv run python sos_scraper.py
+    cd ~/code/jail_scrapers && pipenv run python scrapers.py 
 else
-    cd ~/code/mdoc_scraper && pipenv run python mdoc_scraper.py
+    cd ~/code/jail_scrapers && pipenv run python polish_data.py
     cd ~/code/reading_list && pipenv run python muh_news.py
+    # cd ~/code/mdoc_scraper && pipenv run python mdoc_scraper.py
+    # cd ~/code/sos_scraper && pipenv run python sos_scraper.py
 fi
 
-# 3. FINALLY, CERTAIN SCRIPTS ONLY RUN DURING TARGETTED HOURS OF THE DAY
+# 2. CERTAIN SCRIPTS ONLY RUN DURING TARGETTED HOURS OF THE DAY
 # a. Every hour, 9am - 7pm, if applicable, a scheduled tweet is tweeted.
 # b. Only once per day, at 1am, is WaPo's database checked for updates.
 
